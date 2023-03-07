@@ -79,6 +79,7 @@ const Home = () => {
               style={{
                 width: Dimensions.get("window").width * 0.84,
                 height: Dimensions.get("window").height * 0.069,
+                justifyContent:'center'
               }}
             >
               <EvilIcons
@@ -86,18 +87,7 @@ const Home = () => {
                 size={40}
                 style={{ top: 10, color: "#909090" }}
               />
-              <TextInput
-                style={{
-                  fontSize: 16,
-
-                  bottom: 20,
-                  paddingLeft: 40,
-                  height: Dimensions.get("window").height * 0.032,
-                  width: Dimensions.get("window").width * 0.5,
-                  alignSelf: "center",
-                }}
-                placeholder="Search Laundry Name And Place"
-              />
+              <Text style={{fontSize:15,alignSelf:'center',bottom:15}}>Search Laundry Name And Place</Text>
             </TouchableOpacity>
           </View>
 

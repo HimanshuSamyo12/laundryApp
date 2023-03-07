@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useState} from "react";
 import {
   FlatList,
   View,
@@ -23,6 +23,13 @@ import { useNavigation } from "@react-navigation/native";
 
 const SchedulePickup = () => {
   const navigation = useNavigation();
+
+  const [changeColor,setChangeColor]=useState();
+
+
+  const load=()=>{
+    setChangeColor(!changeColor);
+  }
 
   return (
     <View style={{ height: "100%" }}>

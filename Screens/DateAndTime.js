@@ -1,4 +1,4 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import {
   FlatList,
   View,
@@ -160,16 +160,34 @@ const DateAndTime = () => {
         Pickup Date & Time
       </Text>
 
-      <View style={{ top: 32 ,backgroundColor:'white',width:'91%',alignSelf:'center',height:130,justifyContent:"center",alignItems:'center'}}>
-        <View style={{ flexDirection: "row", left: 10 ,marginBottom:13}}>
+      <View
+        style={{
+          top: 32,
+          backgroundColor: "white",
+          width: "91%",
+          alignSelf: "center",
+          height: 130,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <View style={{ flexDirection: "row", left: 10, marginBottom: 13 }}>
           <TextInput
             placeholder="Enter Pickup Date"
-            style={{ padding: 1 ,width:'90%',paddingLeft:10,borderRadius:5,height:40,backgroundColor:'#EEEEFF',fontSize:16}}
+            style={{
+              padding: 1,
+              width: "90%",
+              paddingLeft: 10,
+              borderRadius: 5,
+              height: 40,
+              backgroundColor: "#EEEEFF",
+              fontSize: 16,
+            }}
           />
 
           <TouchableOpacity
             style={{
-                right:40,
+              right: 40,
               width: 32,
               justifyContent: "center",
               alignItems: "center",
@@ -187,12 +205,20 @@ const DateAndTime = () => {
         <View style={{ flexDirection: "row", left: 10 }}>
           <TextInput
             placeholder="Enter Pickup Time"
-            style={{  padding: 1 ,width:'90%',paddingLeft:10,borderRadius:5,height:40,backgroundColor:'#EEEEFF',fontSize:16}}
+            style={{
+              padding: 1,
+              width: "90%",
+              paddingLeft: 10,
+              borderRadius: 5,
+              height: 40,
+              backgroundColor: "#EEEEFF",
+              fontSize: 16,
+            }}
           />
 
           <TouchableOpacity
             style={{
-                right:40,
+              right: 40,
               width: 32,
               justifyContent: "center",
               alignItems: "center",
@@ -212,17 +238,34 @@ const DateAndTime = () => {
         Delivery Date & Time
       </Text>
 
-
-      <View style={{ top: 55 ,backgroundColor:'white',width:'91%',alignSelf:'center',height:130,justifyContent:"center",alignItems:'center'}}>
-        <View style={{ flexDirection: "row", left: 10 ,marginBottom:13}}>
+      <View
+        style={{
+          top: 55,
+          backgroundColor: "white",
+          width: "91%",
+          alignSelf: "center",
+          height: 130,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <View style={{ flexDirection: "row", left: 10, marginBottom: 13 }}>
           <TextInput
             placeholder="Enter Delivery Date"
-            style={{ padding: 1 ,width:'90%',paddingLeft:10,borderRadius:5,height:40,backgroundColor:'#EEEEFF',fontSize:16}}
+            style={{
+              padding: 1,
+              width: "90%",
+              paddingLeft: 10,
+              borderRadius: 5,
+              height: 40,
+              backgroundColor: "#EEEEFF",
+              fontSize: 16,
+            }}
           />
 
           <TouchableOpacity
             style={{
-                right:40,
+              right: 40,
               width: 32,
               justifyContent: "center",
               alignItems: "center",
@@ -240,12 +283,20 @@ const DateAndTime = () => {
         <View style={{ flexDirection: "row", left: 10 }}>
           <TextInput
             placeholder="Enter Delivery Time"
-            style={{ padding: 1 ,width:'90%',paddingLeft:10,borderRadius:5,height:40,backgroundColor:'#EEEEFF',fontSize:16}}
+            style={{
+              padding: 1,
+              width: "90%",
+              paddingLeft: 10,
+              borderRadius: 5,
+              height: 40,
+              backgroundColor: "#EEEEFF",
+              fontSize: 16,
+            }}
           />
 
           <TouchableOpacity
             style={{
-                right:40,
+              right: 40,
               width: 32,
               justifyContent: "center",
               alignItems: "center",
@@ -262,13 +313,11 @@ const DateAndTime = () => {
       </View>
 
       <DateTimePickerModal
-      isVisible={isDatePickerVisible}
-      mode="date"
-      onConfirm={handleConfirm}
-      onCancel={hideDatePicker}
-    />
-
-
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={handleConfirm}
+        onCancel={hideDatePicker}
+      />
 
       <View style={{ top: 190 }}>
         <Button1

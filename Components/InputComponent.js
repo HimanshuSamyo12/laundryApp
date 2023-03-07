@@ -23,6 +23,7 @@ const InputField = (props) => {
         },
         Input: {
             fontSize: 18,
+            
             left: 5,
             color: '#909090',
             marginBottom: 4

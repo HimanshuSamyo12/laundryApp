@@ -51,15 +51,17 @@ const Login = () => {
       const logRess =
         (Constants,
         {
-          // email: Constants.email,
+          mobile:Constants.mobile,
+          address:Constants.address,
+          email: Constants.email,
           // password: Constants.password,
           user_id: Constants.user_id,
           device_type: Constants.device_type,
-          // name: Constants.name,
+          name: Constants.name,
           // device_token: Constants.device_token,
         });
 
-        console.log("ios Test 2323232323232323232323232323232323", logRess.user_id);
+        console.log("ios Test 2323232323232323232323232323232323", logRess);
       if (logRess.user_id === myData.data.user_id) {
         console.log("ios testing check mobile", myData.data.user_id);
         console.log("ios testing check local storage", logRess.user_id);
@@ -72,9 +74,11 @@ const Login = () => {
 
       const updatedmyData = myData.data;
       // const devty = updatedmyData.device_type;
-      // const email1 = updatedmyData.email;
+      const email1 = updatedmyData.email;
+      const mob=updatedmyData.mobile;
+      const address=updatedmyData.address;
       // const password1 = updatedmyData.password;
-      // const name = updatedmyData.name;
+      const name = updatedmyData.name;
       const uid = updatedmyData.user_id;
       const div = updatedmyData.device_token;
 
@@ -88,14 +92,29 @@ const Login = () => {
       //   value: password1,
       // });
 
-      // setGlobalVariableValue({
-      //   key: "name",
-      //   value: name,
-      // });
-      // setGlobalVariableValue({
-      //   key: "user_id",
-      //   value: uid,
-      // });
+      setGlobalVariableValue({
+        key: "name",
+        value: name,
+      });
+
+      setGlobalVariableValue({
+        key: "email",
+        value: email1,
+      });
+
+      setGlobalVariableValue({
+        key: "mobile",
+        value: mob,
+      });
+
+      setGlobalVariableValue({
+        key: "address",
+        value: address,
+      });
+      setGlobalVariableValue({
+        key: "user_id",
+        value: uid,
+      });
       // setGlobalVariableValue({
       //   key: "device_token",
       //   value: div,
@@ -201,7 +220,7 @@ const Login = () => {
           )}
 
           <InputField
-            height={50}
+            height={64}
             t={95}
             txt1={"Password"}
             placeholder={"Password"}
@@ -239,7 +258,7 @@ const Login = () => {
             </Text>
           </TouchableOpacity>
 
-          <View style={{ top: 32,marginBottom:32 }}>
+          <View style={{ top: 64,marginBottom:32 }}>
             <Button1
               onPress={handleSubmit}
               value={"LOGIN"}
