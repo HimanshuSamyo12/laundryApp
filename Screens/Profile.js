@@ -28,7 +28,7 @@ const Profile = () => {
 
   const Constants = GlobalVariables.useValues();
 
-  const logress = (Constants, { name: Constants.name });
+  const logress = (Constants, { name: Constants.name ,address:Constants.address});
 
   console.log("9999999999999999999999", logress.name);
 
@@ -105,6 +105,19 @@ const Profile = () => {
           >
             {name}
           </Text>
+
+          <Text
+            style={{
+              height:21,
+              width:'95%',
+              alignSelf:'center',
+              fontSize: 14,
+             bottom: 90,
+            }}
+          >
+            {logress.address}
+          </Text>
+
         </View>
 
         <View
@@ -112,7 +125,7 @@ const Profile = () => {
             backgroundColor: "#dedede",
             height: 55,
             justifyContent: "center",
-            bottom: 50,
+            bottom: 81,
           }}
         >
           <Text style={{ left: 20, fontSize: 20, color: "#A0A0A0" }}>
@@ -120,7 +133,9 @@ const Profile = () => {
           </Text>
         </View>
 
-        <View style={{ bottom: 32 }}>
+        <View style={{bottom:23}}>
+        
+        <View style={{ bottom: 40 }}>
           <TouchableOpacity
             onPress={() => navigation.navigate("UpdateProfile")}
           >
@@ -257,6 +272,7 @@ const Profile = () => {
               Logout
             </Text>
           </TouchableOpacity>
+        </View>
         </View>
       </ScrollView>
     </View>
