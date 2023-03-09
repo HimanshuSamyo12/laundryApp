@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useState} from "react";
 import {
   FlatList,
   View,
@@ -22,9 +22,15 @@ import {
 } from "react-native-vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import * as GlobalVariables from "../Storage/globalData";
+import Modal from "react-native-modal";
 
 const Profile = () => {
   const navigation = useNavigation();
+
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   const Constants = GlobalVariables.useValues();
 
@@ -33,6 +39,13 @@ const Profile = () => {
   console.log("9999999999999999999999", logress.name);
 
   const name = logress.name;
+
+
+  const list = [
+    { icon: <AntDesign name="camerao" size={32} />, employee: "Camera" },
+    { icon: <Entypo name="images" size={30} />, employee: "Gallery" },
+    { icon: <Entypo name="circle-with-cross" size={32} />, employee: "cancle" },
+    ];
 
   const Logout = () =>
     Alert.alert("Logout", "Logout ?", [
@@ -43,6 +56,8 @@ const Profile = () => {
       },
       { text: "OK", onPress: () =>navigation.navigate('Login') },
     ]);
+
+
 
   const cancleaccount = () =>
     Alert.alert("Cancle Account", "Coming Soon", [
@@ -87,7 +102,7 @@ const Profile = () => {
               bottom: 100,
             }}
           >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={toggleModal}>
               <FontAwesome
                 name="camera"
                 size={20}
@@ -95,6 +110,62 @@ const Profile = () => {
               />
             </TouchableOpacity>
           </View>
+
+          <Modal isVisible={isModalVisible}>
+        <View
+          style={{ backgroundColor: "white", height: 230, borderRadius: 15 ,top:290,alignSelf:'center',width:'110%'}}
+        >
+          <TouchableOpacity
+            style={{
+              alignSelf: "flex-end",
+              right: 10,
+              top: 15,
+              height: 32,
+              width: 32,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onPress={toggleModal}
+          >
+            <Entypo
+              name="circle-with-cross"
+              size={23}
+              style={{ color: "#147fdc" }}
+            />
+        </TouchableOpacity>
+
+        <Text style={{left:15,bottom:10}}>Please select image</Text>
+          <FlatList
+            data={list}
+            renderItem={({ item }) => {
+              return (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    marginBottom: 15,
+                    left: 10,
+                    top: 10,
+                  }}
+                >
+                                    <View style={{backgroundColor:'#147fdc',borderRadius:23}}>
+                    <Text style={{padding:5,color:'white'}}>{item.icon}</Text>
+                    </View>
+                  <TouchableOpacity
+                    style={{ width: 190}}
+                    onPress={toggleModal}
+                  >
+                    <Text style={{ top: 10, left: 15, fontSize: 16 }}>
+                      {item.employee}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              );
+            }}
+          />
+        </View>
+      </Modal>
+
+
           <Text
             style={{
               fontSize: 20,
