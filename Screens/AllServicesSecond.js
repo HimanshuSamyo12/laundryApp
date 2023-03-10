@@ -57,8 +57,8 @@ const AllServicesSecond = () => {
               name={item.item_name}
               rate={item.price}
               img={{ uri: item.image }}
-              totalrates={5}
-              totalsecond={5}
+              totalrates={item.price}
+              totalsecond={item.price}
             />
           );
         }}

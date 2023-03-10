@@ -67,7 +67,7 @@ const SpotWashAndDry = () => {
               rate={item.price}
               img={{ uri: item.image }}
               totalrates={item.price}
-              totalsecond={5}
+              totalsecond={item.price}
             />
           );
         }}

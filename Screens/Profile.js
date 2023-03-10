@@ -1,4 +1,4 @@
-import {React,useState} from "react";
+import { React, useState } from "react";
 import {
   FlatList,
   View,
@@ -34,18 +34,18 @@ const Profile = () => {
 
   const Constants = GlobalVariables.useValues();
 
-  const logress = (Constants, { name: Constants.name ,address:Constants.address});
+  const logress =
+    (Constants, { name: Constants.name, address: Constants.address });
 
   console.log("9999999999999999999999", logress.name);
 
   const name = logress.name;
 
-
   const list = [
     { icon: <AntDesign name="camerao" size={32} />, employee: "Camera" },
     { icon: <Entypo name="images" size={30} />, employee: "Gallery" },
     { icon: <Entypo name="circle-with-cross" size={32} />, employee: "cancle" },
-    ];
+  ];
 
   const Logout = () =>
     Alert.alert("Logout", "Logout ?", [
@@ -54,10 +54,8 @@ const Profile = () => {
         onPress: () => console.log("Cancel Pressed"),
         style: "cancel",
       },
-      { text: "OK", onPress: () =>navigation.navigate('Login') },
+      { text: "OK", onPress: () => navigation.navigate("Login") },
     ]);
-
-
 
   const cancleaccount = () =>
     Alert.alert("Cancle Account", "Coming Soon", [
@@ -112,59 +110,69 @@ const Profile = () => {
           </View>
 
           <Modal isVisible={isModalVisible}>
-        <View
-          style={{ backgroundColor: "white", height: 230, borderRadius: 15 ,top:290,alignSelf:'center',width:'110%'}}
-        >
-          <TouchableOpacity
-            style={{
-              alignSelf: "flex-end",
-              right: 10,
-              top: 15,
-              height: 32,
-              width: 32,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            onPress={toggleModal}
-          >
-            <Entypo
-              name="circle-with-cross"
-              size={23}
-              style={{ color: "#147fdc" }}
-            />
-        </TouchableOpacity>
+            <View
+              style={{
+                backgroundColor: "white",
+                height: 230,
+                borderRadius: 15,
+                top: 290,
+                alignSelf: "center",
+                width: "110%",
+              }}
+            >
+              <TouchableOpacity
+                style={{
+                  alignSelf: "flex-end",
+                  right: 10,
+                  top: 15,
+                  height: 32,
+                  width: 32,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                onPress={toggleModal}
+              >
+                <Entypo
+                  name="circle-with-cross"
+                  size={23}
+                  style={{ color: "#147fdc" }}
+                />
+              </TouchableOpacity>
 
-        <Text style={{left:15,bottom:10}}>Please select image</Text>
-          <FlatList
-            data={list}
-            renderItem={({ item }) => {
-              return (
-                <View
-                  style={{
-                    flexDirection: "row",
-                    marginBottom: 15,
-                    left: 10,
-                    top: 10,
-                  }}
-                >
-                                    <View style={{backgroundColor:'#147fdc',borderRadius:23}}>
-                    <Text style={{padding:5,color:'white'}}>{item.icon}</Text>
+              <Text style={{ left: 15, bottom: 10 }}>Please select image</Text>
+              <FlatList
+                data={list}
+                renderItem={({ item }) => {
+                  return (
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        marginBottom: 15,
+                        left: 10,
+                        top: 10,
+                      }}
+                    >
+                      <View
+                        style={{ backgroundColor: "#147fdc", borderRadius: 23 }}
+                      >
+                        <Text style={{ padding: 5, color: "white" }}>
+                          {item.icon}
+                        </Text>
+                      </View>
+                      <TouchableOpacity
+                        style={{ width: 190 }}
+                        onPress={toggleModal}
+                      >
+                        <Text style={{ top: 10, left: 15, fontSize: 16 }}>
+                          {item.employee}
+                        </Text>
+                      </TouchableOpacity>
                     </View>
-                  <TouchableOpacity
-                    style={{ width: 190}}
-                    onPress={toggleModal}
-                  >
-                    <Text style={{ top: 10, left: 15, fontSize: 16 }}>
-                      {item.employee}
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              );
-            }}
-          />
-        </View>
-      </Modal>
-
+                  );
+                }}
+              />
+            </View>
+          </Modal>
 
           <Text
             style={{
@@ -179,16 +187,15 @@ const Profile = () => {
 
           <Text
             style={{
-              height:21,
-              width:'95%',
-              alignSelf:'center',
+              height: 21,
+              width: "95%",
+              alignSelf: "center",
               fontSize: 14,
-             bottom: 90,
+              bottom: 90,
             }}
           >
             {logress.address}
           </Text>
-
         </View>
 
         <View
@@ -204,146 +211,149 @@ const Profile = () => {
           </Text>
         </View>
 
-        <View style={{bottom:23}}>
-        
-        <View style={{ bottom: 40 }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("UpdateProfile")}
-          >
-            <EvilIcons
-              name="user"
-              size={40}
-              style={{ color: "#A0A0A0", left: 10 }}
-            />
-            <Text
-              style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+        <View style={{ bottom: 23 }}>
+          <View style={{ bottom: 40 }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("UpdateProfile")}
             >
-              Profile
-            </Text>
-          </TouchableOpacity>
-        </View>
+              <EvilIcons
+                name="user"
+                size={40}
+                style={{ color: "#A0A0A0", left: 10 }}
+              />
+              <Text
+                style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+              >
+                Profile
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ bottom: 40 }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("ChangePassword")}
-          >
-            <SimpleLineIcons
-              name="lock"
-              size={26}
-              style={{ color: "#A0A0A0", left: 15 }}
-            />
-            <Text
-              style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+          <View style={{ bottom: 40 }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("ChangePassword")}
             >
-              Change Password
-            </Text>
-          </TouchableOpacity>
-        </View>
+              <SimpleLineIcons
+                name="lock"
+                size={26}
+                style={{ color: "#A0A0A0", left: 15 }}
+              />
+              <Text
+                style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+              >
+                Change Password
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ bottom: 45 }}>
-          <TouchableOpacity onPress={() => navigation.navigate("FirstScreen")}>
-            <Entypo
-              name="language"
-              size={26}
-              style={{ color: "#A0A0A0", left: 15 }}
-            />
-            <Text
-              style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+          <View style={{ bottom: 45 }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("FirstScreen")}
             >
-              Choose Language
-            </Text>
-          </TouchableOpacity>
-        </View>
+              <Entypo
+                name="language"
+                size={26}
+                style={{ color: "#A0A0A0", left: 15 }}
+              />
+              <Text
+                style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+              >
+                Choose Language
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ bottom: 49 }}>
-          <TouchableOpacity onPress={() => navigation.navigate("Booking")}>
-            <MaterialCommunityIcons
-              name="notebook-edit-outline"
-              size={26}
-              style={{ color: "#A0A0A0", left: 15 }}
-            />
-            <Text
-              style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
-            >
-              My Order
-            </Text>
-          </TouchableOpacity>
-        </View>
+          <View style={{ bottom: 49 }}>
+            <TouchableOpacity onPress={() => navigation.navigate("Booking")}>
+              <MaterialCommunityIcons
+                name="notebook-edit-outline"
+                size={26}
+                style={{ color: "#A0A0A0", left: 15 }}
+              />
+              <Text
+                style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+              >
+                My Order
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ bottom: 55 }}>
-          <TouchableOpacity onPress={() => navigation.navigate("Notification")}>
-            <Ionicons
-              name="notifications-outline"
-              size={30}
-              style={{ color: "#A0A0A0", left: 15 }}
-            />
-            <Text
-              style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+          <View style={{ bottom: 55 }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Notification")}
             >
-              Notification
-            </Text>
-          </TouchableOpacity>
-        </View>
+              <Ionicons
+                name="notifications-outline"
+                size={30}
+                style={{ color: "#A0A0A0", left: 15 }}
+              />
+              <Text
+                style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+              >
+                Notification
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ bottom: 60 }}>
-          <TouchableOpacity onPress={() => navigation.navigate("Chat")}>
-            <MaterialIcons
-              name="chat"
-              size={30}
-              style={{ color: "#A0A0A0", left: 15 }}
-            />
-            <Text
-              style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
-            >
-              Chat
-            </Text>
-          </TouchableOpacity>
-        </View>
+          <View style={{ bottom: 60 }}>
+            <TouchableOpacity onPress={() => navigation.navigate("Chat")}>
+              <MaterialIcons
+                name="chat"
+                size={30}
+                style={{ color: "#A0A0A0", left: 15 }}
+              />
+              <Text
+                style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+              >
+                Chat
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ bottom: 64 }}>
-          <TouchableOpacity onPress={() => navigation.navigate("Support")}>
-            <MaterialIcons
-              name="support-agent"
-              size={30}
-              style={{ color: "#A0A0A0", left: 15 }}
-            />
-            <Text
-              style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
-            >
-              Support
-            </Text>
-          </TouchableOpacity>
-        </View>
+          <View style={{ bottom: 64 }}>
+            <TouchableOpacity onPress={() => navigation.navigate("Support")}>
+              <MaterialIcons
+                name="support-agent"
+                size={30}
+                style={{ color: "#A0A0A0", left: 15 }}
+              />
+              <Text
+                style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+              >
+                Support
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ bottom: 71 }}>
-          <TouchableOpacity onPress={cancleaccount}>
-            <AntDesign
-              name="delete"
-              size={30}
-              style={{ color: "#A0A0A0", left: 15 }}
-            />
-            <Text
-              style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
-            >
-              Cancle Account
-            </Text>
-          </TouchableOpacity>
-        </View>
+          <View style={{ bottom: 71 }}>
+            <TouchableOpacity onPress={cancleaccount}>
+              <AntDesign
+                name="delete"
+                size={30}
+                style={{ color: "#A0A0A0", left: 15 }}
+              />
+              <Text
+                style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+              >
+                Cancle Account
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ bottom: 73 }}>
-          <TouchableOpacity onPress={Logout}>
-            <MaterialCommunityIcons
-              name="logout"
-              size={30}
-              style={{ color: "#A0A0A0", left: 15 }}
-            />
-            <Text
-              style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
-            >
-              Logout
-            </Text>
-          </TouchableOpacity>
-        </View>
+          <View style={{ bottom: 73 }}>
+            <TouchableOpacity onPress={Logout}>
+              <MaterialCommunityIcons
+                name="logout"
+                size={30}
+                style={{ color: "#A0A0A0", left: 15 }}
+              />
+              <Text
+                style={{ left: 60, bottom: 30, fontSize: 20, color: "#A0A0A0" }}
+              >
+                Logout
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </View>

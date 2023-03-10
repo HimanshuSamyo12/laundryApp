@@ -179,7 +179,7 @@ const SignupScreen = () => {
             )}
 
             <InputField
-              height={64}
+              height={73}
               t={64}
               txt1={"Confirm Password"}
               placeholder={"Confirm Password"}
