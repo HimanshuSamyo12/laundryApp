@@ -4,16 +4,20 @@ import {
   Dimensions,
   Text,
   Image,
+  FlatList,
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
 import { Entypo, EvilIcons, Ionicons } from "react-native-vector-icons";
 import * as API from "../Api/Constant";
 import TopServicesComponent from "../Components/TopServicesComponent";
+import filter from "lodash.filter";
 
 const SearchBar = () => {
   const [apiData, SetApiData] = useState();
+  const [query, setQuery] = useState("");
+  const [data, setData] = useState([]);
+  const [fullData, setFullData] = useState([]);
 
   const searchAPI = async () => {
     try {
@@ -30,18 +34,38 @@ const SearchBar = () => {
       });
       const apiresss = await apiResponse.json();
       const myApiRess = apiresss.data;
+      setData(myApiRess);
       SetApiData(myApiRess);
+      setFullData(myApiRess);
       // console.log("123456789asdfghjkl", myApiRess);
     } catch (error) {
       console.log(error);
     }
   };
 
-  console.log("12345 Check Search API", apiData);
+  // console.log("12345 Check Search API", apiData);
 
   useEffect(() => {
     searchAPI();
   }, []);
+
+  const handleSearch = (text) => {
+    const formattedQuery = text.toLowerCase();
+    const filteredData = filter(fullData, (user) => {
+      return contains(user, formattedQuery);
+    });
+    SetApiData(filteredData);
+    setQuery(text);
+  };
+
+  const contains = ({ shop_name }, query) => {
+    if (shop_name.includes(query)) {
+      return true;
+    }
+
+    return false;
+  };
+
 
   return (
     <View>
@@ -71,20 +95,25 @@ const SearchBar = () => {
           />
           <TextInput
             autoFocus={true}
+            autoCapitalize="none"
+            autoCorrect={false}
+            clearButtonMode="always"
+            value={query}
+            onChangeText={(queryText) => handleSearch(queryText)}
+            placeholder="Search"
             style={{
               fontSize: 16,
-
               bottom: 20,
               paddingLeft: 40,
               height: Dimensions.get("window").height * 0.032,
             }}
-            placeholder="Search Laundry Name And Place"
           />
         </TouchableOpacity>
       </View>
 
       <FlatList
         data={apiData}
+        // ListHeaderComponent={renderHeader}
         renderItem={({ item }) => {
           return (
             <View

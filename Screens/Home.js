@@ -87,7 +87,7 @@ const Home = () => {
                 size={40}
                 style={{ top: 10, color: "#909090" }}
               />
-              <Text style={{fontSize:15,alignSelf:'center',bottom:15}}>Search Laundry Name And Place</Text>
+              <Text style={{fontSize:15,alignSelf:'center',bottom:18}}>Search Laundry Name And Place</Text>
             </TouchableOpacity>
           </View>
 
