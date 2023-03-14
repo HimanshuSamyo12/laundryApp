@@ -23,8 +23,10 @@ const Home = () => {
   const [homedata, setHomedata] = useState();
   const [servicedata, setServicedata] = useState();
   const [ad, setAd] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const listSecond = async () => {
+    setIsLoading(true);
     try {
       const formData = new FormData();
       formData.append("latitude", "22.7375");
@@ -47,6 +49,7 @@ const Home = () => {
       setHomedata(ress);
       setServicedata(serviceRess);
       setAd(adRess);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -54,6 +57,7 @@ const Home = () => {
 
   useEffect(() => {
     listSecond();
+
   }, []);
 
   const navigation = useNavigation();

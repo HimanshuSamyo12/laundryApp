@@ -79,10 +79,7 @@ const AppNavigator = () => {
 
         <Stack.Screen name="TopTabNavigator" component={TopTabNavigator} />
 
-        <Stack.Screen
-          name="TopTabNavigatorSecond"
-          component={TopTabNavigatorSecond}
-        />
+        <Stack.Screen name="TopTabNavigatorSecond" component={TopTabNavigatorSecond}/>
 
         <Stack.Screen name="PreviewOrder" component={PreviewOrder} />
 

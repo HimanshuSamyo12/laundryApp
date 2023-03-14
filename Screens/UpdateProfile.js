@@ -63,31 +63,35 @@ const UpdateProfile = () => {
 
       <View style={{ top: 32 }}>
         <InputField
+        defaultValue={logress.name}
           txt1={"Full Name"}
           placeholder={"Full Name"}
           height={64}
-          value={logress.name}
+       
         />
 
         <InputField
+         defaultValue={logress.mobileno}
           txt1={"Phone Number"}
           placeholder={"Phone Number"}
           height={64}
-          value={logress.mobileno}
+         
         />
 
         <InputField
+          defaultValue={logress.email}
           txt1={"Email"}
           placeholder={"Email"}
           height={64}
-          value={logress.email}
+        
         />
 
         <InputField
+        defaultValue={logress.address}
           txt1={"Address"}
           placeholder={"Address"}
           height={64}
-          value={logress.address}
+       
         />
       </View>
 

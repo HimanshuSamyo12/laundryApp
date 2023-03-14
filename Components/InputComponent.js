@@ -34,6 +34,7 @@ const InputField = (props) => {
         <View style={styles.InputBox}>
             <Text style={styles.txtInput}>{props.txt1}</Text>
             <TextInput
+            defaultValue={props.defaultValue}
                 style={styles.Input}
                 placeholder={props.placeholder}
                 onChangeText={props.onChangeText}

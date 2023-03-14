@@ -20,6 +20,7 @@
     "@react-navigation/material-top-tabs": "^6.5.1",
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
+    "@reduxjs/toolkit": "^1.9.3",
     "axios": "^1.2.2",
     "expo": "^47.0.8",
     "expo-font": "^11.0.1",
