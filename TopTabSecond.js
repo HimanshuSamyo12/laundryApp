@@ -8,10 +8,15 @@ import SpotWashAndDry from './Screens/SpotWashAndDry';
 import {  AntDesign } from 'react-native-vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import LaundryComponent from './Components/LaundryComponent';
+import { useSelector } from 'react-redux';
 
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabNavigatorSecond = (props) => {
+
+    const selector=useSelector(state=>state.product);
+console.log('check selector data 09090909 909090909 ',selector)
+
 
     const navigation = useNavigation();
 
@@ -42,7 +47,7 @@ const TopTabNavigatorSecond = (props) => {
             </Tab.Navigator>
             <View style={{ backgroundColor: '#147fdc', height: 123, justifyContent: 'center' }}>
                 <Text style={{ borderRightWidth: 1, borderRightColor: 'white', paddingLeft: 20, paddingTop: 5, color: 'white', fontSize: 20, left: 5, height: 40, width: 150 }}>Total 0</Text>
-                <Text style={{ color: 'white', fontSize: 20, bottom: 35, left: 160, }}>{props.items} Items Added</Text>
+                <Text style={{ color: 'white', fontSize: 20, bottom: 35, left: 160, }}>{props.items} {'Items - ' + selector.length}</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('PreviewOrder')}><Text style={{ color: 'white', fontSize: 20, bottom: 60, alignSelf: 'flex-end', right: 32 }}>Next</Text>
                     <AntDesign name='right' size={20} style={{ color: 'white', position: 'absolute', alignSelf: 'flex-end', bottom: 61, right: 10 }} /></TouchableOpacity>
             </View>

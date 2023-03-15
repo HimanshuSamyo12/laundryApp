@@ -1,11 +1,14 @@
-import { React, useState } from "react";
+import { React, useState ,useEffect, useDebugValue} from "react";
 import { View, Text, Dimensions, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "react-native-vector-icons";
 import TopTabNavigatorSecond from "../TopTabSecond";
-
+import { useDispatch } from "react-redux";
+import { addMyProducts } from "../newredux/myproductSlice";
 const LaundryComponent = (props) => {
   const [counter, setCounter] = useState(0);
   const [total, setTotal] = useState(0);
+  const [plusvalue,setPlusvalue]=useState();
+  const [minusvalue,setMinusvalue]=useState();
 
   const addition = () => {
     setCounter(counter + 1);
@@ -28,6 +31,20 @@ const LaundryComponent = (props) => {
   const TopTab = () => {
     <TopTabNavigatorSecond items={counter} />;
   };
+
+const dispatch=useDispatch();
+
+
+
+useEffect(()=>{
+  dispatch(addMyProducts(total))
+  
+})
+
+
+
+  console.log('quantity 252525252 2525255',counter)
+  console.log('check rates 121212121 12121212',total)
 
   return (
     <View
@@ -87,7 +104,9 @@ const LaundryComponent = (props) => {
             }}
           >
             {props.total}${total}
+            
           </Text>
+
         </View>
         <View style={{ bottom: 32 }}>
           <TouchableOpacity
